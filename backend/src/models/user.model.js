@@ -16,7 +16,7 @@ const userSchema = new Schema(
             type: String,
             required: true,
             unique: true,
-            lowecase: true,
+            lowercase: true,
             trim: true, 
         },
         fullName: {
@@ -45,7 +45,6 @@ const userSchema = new Schema(
         refreshToken: {
             type: String
         }
-
     },
     {
         timestamps: true

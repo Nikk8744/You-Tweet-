@@ -12,7 +12,7 @@ const getAllComments = asyncHandler(async(req, res) => {
 
     const pipeline = [];
 
-    if (isValidObjectId(videoId)) {
+    if (!isValidObjectId(videoId)) {
         throw new ApiError(400, "Invalid videoId")
     }
 

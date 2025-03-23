@@ -8,12 +8,13 @@ import { User } from "../models/user.model.js";
 
 const getAllVideos = asyncHandler(async (req, res) => {
     const {page = 1, limit = 10, query, sortBy, sortType, userId} = req.query;
-
+    const userID = req?.user?._id;
+    console.log("The userId is : ", userID)
     // first we declare a pipeline that we will use, you can give any name
     const pipeline = [];
-
+    // console.log("The userId is : ", req.user?._id)
     if (!isValidObjectId(userId)) {
-        throw new ApiError(400, "Invalid UderId")
+        throw new ApiError(400, "Invalid UserId")
     }
     // find the user in db by it useriD
     const user = await User.findById(userId);
